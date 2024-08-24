@@ -12,7 +12,7 @@
  - pip install Pillow==10.1.0
  - pip install torch==2.0.1+cu118
 
- - ### 方案阐述
+### 方案阐述
  - 第一步借鉴InMap(Intra-Modal Proxy Learning for Zero-Shot Visual Categorization with CLIP )方案预测unseen类别, 有直接预测，预测出可见类别转第二步 [Code link](https://github.com/idstcv/InMaP/) [Paper link](https://arxiv.org/abs/2310.19752)
  - 第二步借鉴LP++（LP++: A Surprisingly Strong Linear Probe for Few-Shot CLIP）进行可见类别4-shot的学习,预测出狗的类别转第三步，不是狗的类别直接预测 [Paper line](https://arxiv.org/abs/2404.02285)
  - 第三步根据上一步识别狗类别，重新用4-shot微调后的ConvnextV2模型重新识别
@@ -83,8 +83,11 @@
     - rn_alpha_vec (已提供在out文件)
     - rn_LP (已提供在out文件)
     - out 最终文件 (默认，可以修改)
-    - 
+  
 ### 说明
  - conver.py需要手动转化，注意下载到模型在上一层目录, 转换后模型在当前目录，下载模型路径可以自行修改，在4，10，16行，转话后的目录默认，如有必要改，相应脚本路径也需要保持一致，默认是相对路径
  - 训练显卡>16G,测试显卡>22G(团队训练显卡3090 24G,测试A6000 48G), 3090训练时间小于1h(1min+1min+15min)，A6000预测时间20min
  - 训练或测试脚本运行前注意红色部分，训练5个，测试4个,除红色部分其它可以不动，模型转化成功后（在说明里第一点），即可运行
+   
+### 收获
+ - 使用Jittor实现InMap,Tip Adapter,LP++,Convnext,Convnextv2, RMT, MMLA
