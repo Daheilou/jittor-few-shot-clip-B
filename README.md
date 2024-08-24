@@ -1,5 +1,5 @@
 # jittor-few-shot-clip-B
-第四届计图人工智能挑战赛-jittor-[深度玄学]-开放域少样本视觉分类赛题
+第四届计图人工智能挑战赛-jittor-[深度玄学]-开放域少样本视觉分类赛题B榜
 
 ### 环境安装
  - pip install jittor==1.3.8.5
@@ -21,7 +21,6 @@
  - Oepn CLIP [ViT-B/32]( https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt)
  - Oepn CLIP [ResNet101](https://openaipublic.azureedge.net/clip/models/8fa8567bab74a42d41c5915025a8e4538c3bdbe8804a470a72f30b0d94fab599/RN101.pt)
  - [ConvNeXt-V2-B](https://dl.fbaipublicfiles.com/convnext/convnextv2/im1k/convnextv2_base_1k_224_ema.pt) [Github code](https://github.com/facebookresearch/ConvNeXt-V2) [HF镜像](https://hf-mirror.com/facebook/convnextv2-base-1k-224)
-  - 每行第一个蓝色部分是下载链接
  
 ### InMap
  - 不需要训练，核心代码在test.py243行至265行，实现非常简单, 任何unseen类别都可以用
@@ -84,3 +83,8 @@
     - rn_alpha_vec (已提供在out文件)
     - rn_LP (已提供在out文件)
     - out 最终文件 (默认，可以修改)
+    - 
+### 说明
+ - conver.py需要手动转化，注意下载到模型在上一层目录, 转换后模型在当前目录，下载模型路径可以自行修改，在4，10，16行，转话后的目录默认，如有必要改，相应脚本路径也需要保持一致，默认是相对路径
+ - 训练显卡>16G,测试显卡>22G(团队训练显卡3090 24G,测试A6000 48G), 3090训练时间小于1h(1min+1min+15min)，A6000预测时间20min
+ - 训练或测试脚本运行前注意红色部分，训练5个，测试4个,除红色部分其它可以不动，模型转化成功后（在说明里第一点），即可运行
