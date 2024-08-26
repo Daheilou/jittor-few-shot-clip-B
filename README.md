@@ -75,12 +75,12 @@
     - all_class 全部类别文件 (<span style="color: red;">自行补充</span>）
     - pretrain_vit_model Open预训练模型 [ViT-B/32]( https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt) （<span style="color: red;">自行补充</span>,conver.py文件转换）
     - pretrain_rn_model Open预训练模型 [ResNet101](https://openaipublic.azureedge.net/clip/models/8fa8567bab74a42d41c5915025a8e4538c3bdbe8804a470a72f30b0d94fab599/RN101.pt)（<span style="color: red;">自行补充</span>, conver.py文件转换）
-    - pretrain_convnext_model (已提供在out文件)
-    - vit_alpha_vec (已提供在out文件)
-    - vit_LP (已提供在out文件)
-    - rn_alpha_vec (已提供在out文件)
-    - rn_LP (已提供在out文件)
-    - out 最终文件 (默认，可以修改)
+    - pretrain_convnext_model
+    - vit_alpha_vec
+    - vit_LP
+    - rn_alpha_vec
+    - rn_LP
+    - out 最终文件
   
 ### 说明
  - conver.py需要手动转化，注意下载到模型在上一层目录, 转换后模型在当前目录，下载模型路径可以自行修改，在4，10，16行，转话后的目录默认，如有必要改，相应脚本路径也需要保持一致，默认是相对路径
