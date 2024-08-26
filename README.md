@@ -23,17 +23,15 @@
  - [ConvNeXt-V2-B](https://dl.fbaipublicfiles.com/convnext/convnextv2/im1k/convnextv2_base_1k_224_ema.pt) [Github code](https://github.com/facebookresearch/ConvNeXt-V2) [HF镜像](https://hf-mirror.com/facebook/convnextv2-base-1k-224)
  
 ### InMap
- - 不需要训练，核心代码在test.py243行至265行，实现非常简单, 任何unseen类别都可以用
  - 文献里提到13个数据集rn50平均提升5个点，car类别提升7个点
  - 需要CLIP提取图片和文本特征，无其它模型参数
  - 需要对超参数进行细调
- - 运行时间很快，5s
+ - 不需要训练
    
 ### LP++
  - 对线性层进一步优化，主要在图像特征和文本特征的权重上
  - 文献中显示与Tip-Adapter-F相比，各有千秋，分数接近，4-shot表现中LP++在11个数据集平均分数为69.16±0.79, Tip-Adapter-F为68.71 ± 0.96
  - 会生成中间文件，这个中间文件是一个常量矩阵，vit-b-32及rn101方案中这个文件大小均为1.6K
- - 3090训练时间小于1min
  
  
 ### 最终参数之和
@@ -86,8 +84,7 @@
   
 ### 说明
  - conver.py需要手动转化，注意下载到模型在上一层目录, 转换后模型在当前目录，下载模型路径可以自行修改，在4，10，16行，转话后的目录默认，如有必要改，相应脚本路径也需要保持一致，默认是相对路径
- - 训练显卡>16G,测试显卡>22G(团队训练显卡3090 24G,测试A6000 48G), 3090训练时间小于1h(1min+1min+15min)，A6000预测时间20min
- - 训练或测试脚本运行前注意红色部分，训练5个，测试4个,除红色部分其它可以不动，模型转化成功后（在说明里第一点），即可运行
+ - 训练显卡>16G,测试显卡>22G(团队训练显卡3090 24G,测试A6000 48G)
    
 ### 收获
  - 使用Jittor实现InMap,Tip Adapter,LP++,Convnext,Convnextv2, RMT, MMLA
